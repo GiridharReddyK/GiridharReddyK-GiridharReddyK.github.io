@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <!-- Shown only until assets/img/profile.jpg exists. -->
+  <rect width="400" height="500" fill="#dcebee"/>
+  <g fill="none" stroke="#0b7285" stroke-opacity="0.18" stroke-width="6" stroke-linecap="round">
+    <path d="M140 150a85 85 0 0 0 0 120"/>
+    <path d="M260 150a85 85 0 0 1 0 120"/>
+    <path d="M100 110a140 140 0 0 0 0 200"/>
+    <path d="M300 110a140 140 0 0 1 0 200"/>
+  </g>
+  <text x="200" y="232" text-anchor="middle" dominant-baseline="middle"
+        font-family="Georgia, 'Times New Roman', serif" font-size="84" font-weight="600"
+        fill="#0b7285" letter-spacing="4">GRK</text>
+  <text x="200" y="420" text-anchor="middle"
+        font-family="ui-monospace, Menlo, Consolas, monospace" font-size="22"
+        fill="#0b7285" fill-opacity="0.7" letter-spacing="3">VU2TIO</text>
+</svg>
