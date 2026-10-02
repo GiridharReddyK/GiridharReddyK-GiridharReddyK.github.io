@@ -4,7 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Publications · Giridhar Reddy Karnati</title>
-    <meta name="description" content="Publications by Giridhar Reddy Karnati on LoRa satellite ground stations, ground-station antennas and amateur satellite communication." />
+    <meta
+      name="description"
+      content="Publications and talks by K. Giridhar Reddy (Giridhar Reddy Karnati) on 433 MHz ground-station antennas for LoRa satellites and self-managed LoRa ground stations."
+    />
     <meta name="author" content="Giridhar Reddy Karnati" />
     <link rel="canonical" href="https://giridharreddyk.github.io/publications.html" />
     <meta property="og:title" content="Publications · Giridhar Reddy Karnati" />
@@ -60,12 +63,7 @@
       <div class="container">
         <header class="page-header">
           <h1 class="page-title">Publications</h1>
-          <p class="page-lead">
-            Papers and articles in reverse chronological order. An up-to-date list is also on my
-            <!-- TODO: your Google Scholar and ORCID links (same as on the home page) -->
-            <a href="https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID">Google Scholar</a> and
-            <a href="https://orcid.org/0000-0000-0000-0000">ORCID</a> profiles.
-          </p>
+          <p class="page-lead">Papers, articles and talks, newest first. I publish as <strong>K. Giridhar Reddy</strong>.</p>
         </header>
 
         <!--
@@ -81,42 +79,74 @@
         <h2 class="pub-year">2025</h2>
         <ol class="pub-list">
           <li class="pub">
-            <span class="pub-badge" title="IEEE">IEEE</span>
+            <span class="pub-badge" title="HAM Fest India 2025 Magazine">HFI</span>
             <div class="pub-body">
-              <h3 class="pub-title">Design of Ground Station Antennas for Tracking of LoRa based Satellites at 433 MHz Amateur Frequencies</h3>
-              <!-- TODO: add co-authors in the published order, e.g.
-                   <span class="me">G. R. Karnati</span>, A. Coauthor, and B. Coauthor -->
-              <p class="pub-authors"><span class="me">Giridhar Reddy Karnati</span></p>
-              <!-- TODO: conference name, e.g. "2025 IEEE Xxx Conference (XXX), City" -->
-              <p class="pub-venue">IEEE Xplore · published 2 April 2025</p>
+              <h3 class="pub-title">VayuVani: A Self-Managed LoRa Ground Station for Amateur Operators</h3>
+              <p class="pub-authors"><span class="me">K. Giridhar Reddy</span></p>
+              <p class="pub-venue">HAM Fest India 2025 Magazine, Goa, pp. 20–27</p>
 
               <div class="pub-links">
-                <!-- TODO: once you have the abstract, delete these two comment markers to show the Abs button
-                <button class="btn-sm" type="button" data-panel aria-expanded="false" aria-controls="abs-2025-groundstation">Abs</button>
-                -->
-                <button class="btn-sm" type="button" data-panel aria-expanded="false" aria-controls="bib-2025-groundstation">Bib</button>
-                <!-- TODO: replace this search link with the paper's DOI link, e.g. https://doi.org/10.1109/XXXX.2025.XXXXXXX -->
-                <a
-                  class="btn-sm"
-                  href="https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=%22Design%20of%20Ground%20Station%20Antennas%20for%20Tracking%20of%20LoRa%22"
-                  >IEEE Xplore</a
-                >
+                <button class="btn-sm" type="button" data-panel aria-expanded="false" aria-controls="bib-2025-vayuvani-hfi">Bib</button>
+                <a class="btn-sm" href="https://hfi2025.in/hfimag.pdf">Magazine (PDF)</a>
               </div>
 
-              <div class="pub-panel" id="abs-2025-groundstation" hidden>
-                <!-- TODO: paste the abstract from IEEE Xplore -->
-                <p class="abstract">Abstract goes here.</p>
+              <div class="pub-panel bibtex" id="bib-2025-vayuvani-hfi" hidden>
+                <button class="btn-sm copy-btn" type="button">Copy</button>
+                <pre>@article{reddy2025vayuvani,
+  title   = {{VayuVani}: A Self-Managed {LoRa} Ground Station
+             for Amateur Operators},
+  author  = {Reddy, K. Giridhar},
+  journal = {HAM Fest India 2025 Magazine},
+  address = {Goa, India},
+  pages   = {20--27},
+  year    = {2025},
+  url     = {https://hfi2025.in/hfimag.pdf}
+}</pre>
+              </div>
+            </div>
+          </li>
+
+          <li class="pub">
+            <span class="pub-badge" title="IEEE conference paper">IEEE</span>
+            <div class="pub-body">
+              <h3 class="pub-title">Design of Ground Station Antennas for Tracking of LoRa-Based Satellites at 433 MHz Amateur Frequencies</h3>
+              <!-- TODO: replace "et al." with the co-authors, in order, exactly as on IEEE Xplore -->
+              <p class="pub-authors"><span class="me">K. Giridhar Reddy</span> et al.</p>
+              <p class="pub-venue">
+                Proc. IEEE International Students' Conference on Electrical, Electronics and Computer Sciences (SCEEECS 2025), NIT
+                Bhopal, February 2025 · IEEE Xplore, 2 April 2025
+                <span class="award">Best Paper Award</span>
+              </p>
+
+              <div class="pub-links">
+                <button class="btn-sm" type="button" data-panel aria-expanded="false" aria-controls="sum-2025-groundstation">Summary</button>
+                <button class="btn-sm" type="button" data-panel aria-expanded="false" aria-controls="bib-2025-groundstation">Bib</button>
+                <a class="btn-sm" href="https://ieeexplore.ieee.org/document/10940725">IEEE Xplore</a>
+              </div>
+
+              <div class="pub-panel" id="sum-2025-groundstation" hidden>
+                <!-- You can replace this short summary with the exact abstract from IEEE Xplore. -->
+                <p class="abstract">
+                  We designed and simulated several ground-station antennas for tracking LoRa satellites in the 433 MHz amateur
+                  band, built them, and connected them to an ESP + LoRa-module ground station feeding the VayuVani and TinyGS
+                  networks. The quarter-wave ground-plane antenna performed best, receiving telemetry from slant ranges of about
+                  3,100 km and logging more than 4,000 packets.
+                </p>
               </div>
 
               <div class="pub-panel bibtex" id="bib-2025-groundstation" hidden>
                 <button class="btn-sm copy-btn" type="button">Copy</button>
-                <!-- TODO: replace with the official BibTeX from IEEE Xplore ("Cite This" → BibTeX) -->
-                <pre>@inproceedings{karnati2025groundstation,
+                <!-- TODO: replace with the official BibTeX from IEEE Xplore ("Cite This" → BibTeX); it adds the co-authors, DOI and pages -->
+                <pre>@inproceedings{reddy2025groundstation,
   title     = {Design of Ground Station Antennas for Tracking of
-               {LoRa} based Satellites at 433 {MHz} Amateur Frequencies},
-  author    = {Karnati, Giridhar Reddy},
+               {LoRa}-Based Satellites at 433 {MHz} Amateur Frequencies},
+  author    = {Reddy, K. Giridhar and others},
+  booktitle = {IEEE International Students' Conference on Electrical,
+               Electronics and Computer Sciences (SCEEECS)},
+  address   = {Bhopal, India},
   publisher = {IEEE},
-  year      = {2025}
+  year      = {2025},
+  url       = {https://ieeexplore.ieee.org/document/10940725}
 }</pre>
               </div>
             </div>
@@ -130,25 +160,24 @@
             <span class="pub-badge" title="Radio Amateurs' World magazine">RAW</span>
             <div class="pub-body">
               <h3 class="pub-title">Privacy-Preserving LoRa Ground Stations in Amateur Satellite Communications: A Case Study of VayuVani</h3>
-              <!-- TODO: add co-authors in the published order -->
-              <p class="pub-authors"><span class="me">Giridhar Reddy Karnati</span></p>
-              <p class="pub-venue">HAM Fest India 2024, Kolkata · Radio Amateurs' World (RAW) Magazine, 21 December 2024</p>
+              <p class="pub-authors"><span class="me">K. Giridhar Reddy</span></p>
+              <p class="pub-venue">Radio Amateurs' World (RAW) Magazine · presented at HAM Fest India 2024, Kolkata, 21 December 2024</p>
 
               <div class="pub-links">
                 <button class="btn-sm" type="button" data-panel aria-expanded="false" aria-controls="bib-2024-vayuvani">Bib</button>
-                <!-- TODO: link to the article or a PDF, e.g. put the file at assets/pdf/vayuvani.pdf and un-comment:
-                <a class="btn-sm" href="assets/pdf/vayuvani.pdf">PDF</a>
+                <!-- If you have a PDF, put it at assets/pdf/vayuvani-raw-2024.pdf and un-comment:
+                <a class="btn-sm" href="assets/pdf/vayuvani-raw-2024.pdf">PDF</a>
                 -->
               </div>
 
               <div class="pub-panel bibtex" id="bib-2024-vayuvani" hidden>
                 <button class="btn-sm copy-btn" type="button">Copy</button>
-                <pre>@article{karnati2024vayuvani,
+                <pre>@article{reddy2024vayuvani,
   title   = {Privacy-Preserving {LoRa} Ground Stations in Amateur
              Satellite Communications: A Case Study of {VayuVani}},
-  author  = {Karnati, Giridhar Reddy},
+  author  = {Reddy, K. Giridhar},
   journal = {Radio Amateurs' World ({RAW}) Magazine},
-  note    = {HAM Fest India 2024, Kolkata},
+  note    = {Presented at HAM Fest India 2024, Kolkata},
   month   = dec,
   year    = {2024}
 }</pre>
@@ -157,7 +186,24 @@
           </li>
         </ol>
 
-        <!-- TODO: your third publication (LinkedIn shows 3). Copy a block above and fill it in. -->
+        <!-- ================= Talks ================= -->
+        <h2 class="pub-year">Talks</h2>
+        <ul class="mini-list">
+          <li>
+            <strong>VayuVani: your private LoRa satellite ground station</strong><br />
+            <span class="muted"><a href="https://hfi2025.in/">HamFest India 2025</a>, Goa College of Engineering, Goa · October 2025</span>
+          </li>
+          <li>
+            <strong>Privacy-preserving LoRa ground stations: a case study of VayuVani</strong><br />
+            <span class="muted">HAM Fest India 2024, Kolkata · 21 December 2024</span>
+          </li>
+        </ul>
+
+        <p class="pub-note">
+          VayuVani is an open-source, self-managed LoRa ground-station platform created by Chandra Tungathurthi
+          (<a href="https://vayuvani.com/">vayuvani.com</a>). My articles and talks describe building and operating ground stations
+          with it.
+        </p>
       </div>
     </main>
 

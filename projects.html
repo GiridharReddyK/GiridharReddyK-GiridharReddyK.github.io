@@ -6,7 +6,7 @@
     <title>Projects · Giridhar Reddy Karnati</title>
     <meta
       name="description"
-      content="Projects by Giridhar Reddy Karnati: CMOS wideband receiver front-end, LoRa satellite ground stations, antenna design, clean-room fabrication and FPGA design."
+      content="Projects by Giridhar Reddy Karnati: CMOS receiver front-end, water-vapour radiometer, GNSS anti-spoofing antenna array, wide-band antennas, microwave couplers, LoRa and SatNOGS ground stations, CubeSat hardware, nanofabrication and FPGA design."
     />
     <meta name="author" content="Giridhar Reddy Karnati" />
     <link rel="canonical" href="https://giridharreddyk.github.io/projects.html" />
@@ -63,121 +63,252 @@
       <div class="container">
         <header class="page-header">
           <h1 class="page-title">Projects</h1>
-          <p class="page-lead">From CMOS receiver design and antennas to satellite ground stations and clean-room fabrication.</p>
+          <p class="page-lead">From CMOS receivers and radiometers to antennas, satellite ground stations and clean-room fabrication.</p>
         </header>
 
         <!-- Filter buttons. data-filter must match a word in a card's data-category. -->
         <div class="filters" data-filters role="group" aria-label="Filter projects">
           <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All</button>
-          <button class="filter-btn" type="button" data-filter="ic" aria-pressed="false">IC design</button>
           <button class="filter-btn" type="button" data-filter="rf" aria-pressed="false">RF &amp; antennas</button>
-          <button class="filter-btn" type="button" data-filter="satcom" aria-pressed="false">Satellites</button>
+          <button class="filter-btn" type="button" data-filter="radio" aria-pressed="false">Radio &amp; satellites</button>
+          <button class="filter-btn" type="button" data-filter="ic" aria-pressed="false">IC design</button>
           <button class="filter-btn" type="button" data-filter="fab" aria-pressed="false">Fabrication</button>
           <button class="filter-btn" type="button" data-filter="digital" aria-pressed="false">Digital</button>
         </div>
 
         <!--
           HOW TO ADD A PROJECT
-          Copy one <li class="card"> block. Optional image: add
-            <img class="card-img" src="assets/img/projects/your-image.jpg" alt="What the image shows">
-          as the first line inside the <li>. Add a link with <a href="...">...</a> anywhere in the text.
+          Copy one <li class="card"> block. Optional figure: add
+            <figure class="card-figure"><img src="assets/img/projects/your-image.png" alt="What the image shows" /></figure>
+          as the first thing inside the <li>.
         -->
         <ul class="cards">
+          <!-- 1 -->
           <li class="card" data-category="ic rf">
             <div class="card-kicker"><span>IC design</span><span class="status">Ongoing</span></div>
             <h2 class="card-title">Wideband receiver front-end in CMOS</h2>
-            <!-- TODO: one or two lines on the architecture, band and process node, once you can share them -->
-            <p>Designing the front-end of a wideband receiver in CMOS in the IC Design Lab, as part of my NPTEL pre-doctoral fellowship with Prof. Abhishek Kumar.</p>
+            <p>Designing the front-end of a wideband receiver in CMOS in the IC Design Lab at IIT Hyderabad, as an NPTEL pre-doctoral fellow working with Prof. Abhishek Kumar.</p>
             <ul class="tags">
               <li class="tag">RFIC</li>
               <li class="tag">CMOS</li>
-              <li class="tag">Receiver design</li>
+              <li class="tag">Receiver front-end</li>
             </ul>
             <div class="card-meta"><span>IIT Hyderabad</span><span>2026 – present</span></div>
           </li>
 
-          <li class="card" data-category="satcom rf">
-            <div class="card-kicker"><span>Satellites</span></div>
-            <h2 class="card-title">VayuVani: privacy-preserving LoRa ground station</h2>
+          <!-- 2 -->
+          <li class="card" data-category="rf radio">
+            <div class="card-kicker"><span>Radio astronomy</span></div>
+            <h2 class="card-title">Water-vapour radiometer</h2>
             <p>
-              A LoRa ground station for amateur satellite communication, designed with privacy preservation in mind. Published as a case
-              study in Radio Amateurs' World (RAW) Magazine for HAM Fest India 2024, Kolkata.
+              Architectural design and bring-up of a water-vapour radiometer in the Astronomy &amp; Astrophysics group: RF link-budget
+              and thermal-noise analysis, and gain / noise-figure cascade modelling of the IF chain.
             </p>
+            <ul class="tags">
+              <li class="tag">Radiometry</li>
+              <li class="tag">Link budget</li>
+              <li class="tag">Noise figure</li>
+            </ul>
+            <div class="card-meta"><span>Raman Research Institute</span><span>2025 – 2026</span></div>
+          </li>
+
+          <!-- 3 -->
+          <li class="card" data-category="rf">
+            <figure class="card-figure">
+              <img
+                src="assets/img/projects/crpa-hfss-model.png"
+                alt="Ansys HFSS model of a five-element patch antenna array: four square patches around a central patch on a square ground plane"
+                width="678"
+                height="466"
+                loading="lazy"
+              />
+            </figure>
+            <div class="card-kicker"><span>RF &amp; antennas</span></div>
+            <h2 class="card-title">Anti-spoofing GNSS antenna array (CRPA)</h2>
+            <p>
+              B.E. major project: a 5-element (4 + 1) microstrip-patch Controlled Reception Pattern Antenna for GPS L1 (1.575 GHz)
+              on a Rogers RO4350B-type substrate, modelled in Ansys HFSS with CST Studio Suite for validation. Part I established the
+              array geometry and baseline simulation; Part II targets impedance-matching optimisation and null-steering
+              algorithms in MATLAB.
+            </p>
+            <p class="credit">With V. Bala Sai Datta and G. Preetham · guided by Dr. K. Suman</p>
+            <ul class="tags">
+              <li class="tag">Ansys HFSS</li>
+              <li class="tag">Antenna arrays</li>
+              <li class="tag">GNSS</li>
+            </ul>
+            <div class="card-meta"><span>CBIT · major project</span><span>2025 – 2026</span></div>
+          </li>
+
+          <!-- 4 -->
+          <li class="card" data-category="rf">
+            <div class="card-kicker"><span>RF &amp; antennas</span></div>
+            <h2 class="card-title">Wide-band blade dipole for UAVs</h2>
+            <p>
+              A wide-band blade (bow-tie) dipole on a finite ground plane for the UHF / sub-GHz band used by UAVs and bird-like
+              drones. In simulation: |S<sub>11</sub>| ≤ −10 dB from about 0.55 to 1.51 GHz (≈ 93% fractional bandwidth), VSWR &lt;
+              2 across the band, and a −39.7 dB resonance at 0.73 GHz. Cross-checked with CST's frequency-domain solver.
+            </p>
+            <ul class="tags">
+              <li class="tag">Ansys HFSS</li>
+              <li class="tag">CST Studio Suite</li>
+              <li class="tag">Wide-band antennas</li>
+            </ul>
+            <div class="card-meta"><span>Independent project</span><span>2025</span></div>
+          </li>
+
+          <!-- 5 -->
+          <li class="card" data-category="rf">
+            <figure class="card-figure">
+              <img
+                src="assets/img/projects/schiffman-phase.png"
+                alt="MATLAB plot of a Schiffman phase shifter: transmission phase of the reference and coupled branches, and their phase difference staying near 90 degrees"
+                width="607"
+                height="452"
+                loading="lazy"
+              />
+              <figcaption>Schiffman phase shifter (MATLAB model): phase difference within ±5° of 90° over about 70% bandwidth.</figcaption>
+            </figure>
+            <div class="card-kicker"><span>RF &amp; antennas</span></div>
+            <h2 class="card-title">Coupled-line couplers and Schiffman phase shifter</h2>
+            <p>
+              IEEE summer internship at IIT Kharagpur: modelled a coupled-line directional coupler, a Schiffman phase shifter and a
+              180° hybrid coupler in MATLAB from coupled-line theory, and validated them against ideal circuit simulations in
+              Keysight ADS, comparing insertion loss, return loss and phase error.
+            </p>
+            <p class="credit">Mentor: Shrawan Kumar Patel, IIT Kharagpur</p>
+            <ul class="tags">
+              <li class="tag">Keysight ADS</li>
+              <li class="tag">MATLAB</li>
+              <li class="tag">Microwave circuits</li>
+            </ul>
+            <div class="card-meta"><span>IIT Kharagpur</span><span>2025</span></div>
+          </li>
+
+          <!-- 6 -->
+          <li class="card" data-category="radio rf">
+            <div class="card-kicker"><span>Radio &amp; satellites</span></div>
+            <h2 class="card-title">LoRa satellite ground station at 433 MHz</h2>
+            <p>
+              Designed, built and field-tested a quarter-wave ground-plane antenna, plus dipole, Yagi–Uda, quadrifilar-helix and
+              turnstile antennas, for 433 MHz LoRa CubeSat downlinks, with a comparative link-margin analysis. The ground-plane
+              antenna received telemetry from slant ranges of about 3,100 km (4,000+ packets). The station runs
+              <a href="https://vayuvani.com/">VayuVani</a> with my own Python decoders for LoRa telemetry and offline archiving.
+            </p>
+            <p class="credit">Best Paper Award, IEEE SCEEECS 2025 · VayuVani is an open-source platform by Chandra Tungathurthi</p>
             <ul class="tags">
               <li class="tag">LoRa</li>
-              <li class="tag">Ground station</li>
-              <li class="tag">Amateur satellites</li>
+              <li class="tag">Antennas</li>
+              <li class="tag">Python</li>
             </ul>
-            <div class="card-meta"><a href="publications.html">Paper</a><span>2024</span></div>
+            <div class="card-meta"><a href="publications.html">Papers &amp; talks</a><span>2024 – 2025</span></div>
           </li>
 
-          <li class="card" data-category="rf satcom">
-            <div class="card-kicker"><span>RF &amp; antennas</span></div>
-            <h2 class="card-title">Ground-station antennas for 433 MHz LoRa satellites</h2>
-            <p>Design of ground-station antennas for tracking LoRa-based satellites in the 433 MHz amateur band. Published on IEEE Xplore.</p>
-            <ul class="tags">
-              <li class="tag">Antenna design</li>
-              <li class="tag">UHF</li>
-              <li class="tag">Satellite tracking</li>
-            </ul>
-            <div class="card-meta"><a href="publications.html">Paper</a><span>2025</span></div>
-          </li>
-
-          <li class="card" data-category="rf">
-            <div class="card-kicker"><span>RF &amp; antennas</span></div>
-            <h2 class="card-title">Comprehensive Internship Course on Antenna Design (CICAD)</h2>
+          <!-- 7 -->
+          <li class="card" data-category="radio">
+            <div class="card-kicker"><span>Radio &amp; satellites</span><span class="status">Ongoing</span></div>
+            <h2 class="card-title">SatNOGS ground station</h2>
             <p>
-              A year-long programme by RaoS Consultants covering electromagnetics, antenna theory, horns, reflectors and phased arrays,
-              design and analysis, integration and measurement. Assignments in CST Microwave Studio. Awarded 2nd Place Best Intern.
+              An automated station on the open-source <a href="https://satnogs.org/">SatNOGS</a> network, scheduling passes for
+              CubeSats, AMSAT satellites and the ISS (ARISS), including time-critical end-of-life events. Hands-on site survey,
+              antenna mounting, RF cabling and grounding, and noise-floor characterisation.
             </p>
             <ul class="tags">
-              <li class="tag">CST Microwave Studio</li>
-              <li class="tag">Phased arrays</li>
-              <li class="tag">EM simulation</li>
+              <li class="tag">SatNOGS</li>
+              <li class="tag">SDR</li>
+              <li class="tag">Ground station</li>
             </ul>
-            <div class="card-meta"><span>RaoS Consultants LLC</span><span>2025 – 2026</span></div>
+            <!-- TODO (optional): link your station's page on network.satnogs.org -->
+            <div class="card-meta"><span>Hyderabad</span><span>Ongoing</span></div>
           </li>
 
-          <li class="card" data-category="rf">
-            <div class="card-kicker"><span>RF &amp; antennas</span></div>
-            <h2 class="card-title">RF and microwave circuit analysis and synthesis</h2>
-            <!-- TODO: what you designed or analysed (e.g. filters, couplers, matching networks) -->
-            <p>Analysis and synthesis of RF and microwave circuits during the IEEE AP-S/MTT-S internship with IIT Kharagpur.</p>
+          <!-- 8 -->
+          <li class="card" data-category="radio">
+            <div class="card-kicker"><span>Radio &amp; satellites</span></div>
+            <h2 class="card-title">CubeSat antenna deployment: burn-wire mechanism</h2>
+            <p>
+              Designed and prototyped a compact, low-power burn-wire deployment subsystem for a 1U CubeSat with a four-stage release
+              sequence. A custom relay-driven over-current PCB heats a resistive burn element through a nylon restraint, with a
+              temperature-sensor safety interlock and microcontroller arming logic; shape-memory-alloy radiating arms self-erect.
+            </p>
+            <p class="credit">Industrial project, CBIT · supervisor Dr. K. Vasanth</p>
             <ul class="tags">
-              <li class="tag">Microwave circuits</li>
-              <li class="tag">Circuit synthesis</li>
+              <li class="tag">CubeSat</li>
+              <li class="tag">PCB design</li>
+              <li class="tag">Embedded</li>
             </ul>
-            <div class="card-meta"><span>IIT Kharagpur (remote)</span><span>2025</span></div>
+            <div class="card-meta"><span>CBIT</span><span>2024 – 2025</span></div>
           </li>
 
+          <!-- 9 -->
+          <li class="card" data-category="radio">
+            <div class="card-kicker"><span>Radio &amp; satellites</span></div>
+            <h2 class="card-title">SDR transceivers and APRS ground nodes</h2>
+            <p>Built SDR-based transceivers and portable, Raspberry Pi–driven APRS ground nodes for weather monitoring, designed to be deployed at remote field sites.</p>
+            <ul class="tags">
+              <li class="tag">SDR</li>
+              <li class="tag">APRS</li>
+              <li class="tag">Raspberry Pi</li>
+            </ul>
+            <div class="card-meta"><span>NIT Karnataka, Surathkal</span><span>2025</span></div>
+          </li>
+
+          <!-- 10 -->
           <li class="card" data-category="fab">
             <div class="card-kicker"><span>Fabrication</span></div>
-            <h2 class="card-title">Clean-room device fabrication</h2>
+            <h2 class="card-title">Clean-room nanofabrication</h2>
             <p>
-              Hands-on clean-room processing: laser lithography, sputtering, reactive-ion etching (RIE) and plasma cleaning, through the
-              SPARC NANO-X internship at IIT Hyderabad and later at NNfC, CeNSE, IISc.
+              At IIT Hyderabad's SPARC NANO-X lab, fabricated nano-silicon waveguides, microfluidic devices and 50 µm gold
+              interdigitated electrodes for 2-D-material gas sensors, using Heidelberg µPG 501 maskless lithography, DC magnetron
+              sputtering and lift-off in a Class-1000 clean room. Earlier, fabricated and characterised 2-D-material nano-device
+              sensors at CREST, BITS Pilani Hyderabad.
             </p>
             <ul class="tags">
               <li class="tag">Lithography</li>
               <li class="tag">Sputtering</li>
-              <li class="tag">RIE</li>
+              <li class="tag">2-D materials</li>
             </ul>
-            <div class="card-meta"><span>IIT Hyderabad · IISc</span><span>2025 – 2026</span></div>
+            <div class="card-meta"><span>IIT Hyderabad · BITS Pilani</span><span>2024 – 2025</span></div>
           </li>
 
+          <!-- 11 -->
           <li class="card" data-category="digital">
             <div class="card-kicker"><span>Digital</span></div>
-            <h2 class="card-title">Multi-core soft-processor cluster on FPGA</h2>
-            <p>A multi-core soft-processor cluster with memory arbitration, built for the AI/ML Powered FPGA Design &amp; Simulation Hackathon. Ranked 20th of 250 teams (top 8%).</p>
+            <h2 class="card-title">Multi-core soft-processor cluster</h2>
+            <p>
+              A multi-core soft-processor cluster in Verilog with LFSR-based traffic generators and a round-robin arbiter FSM,
+              targeted at FPGA synthesis in Xilinx Vivado. Ranked 20th of 250 (top 8%) in the AI/ML Powered FPGA Design &amp;
+              Simulation Hackathon.
+            </p>
             <ul class="tags">
+              <li class="tag">Verilog</li>
+              <li class="tag">Xilinx Vivado</li>
               <li class="tag">FPGA</li>
-              <li class="tag">Computer architecture</li>
-              <li class="tag">Memory arbitration</li>
             </ul>
-            <!-- TODO: add the year -->
-            <div class="card-meta"><span>Hackathon</span><span>Rank 20 / 250</span></div>
+            <div class="card-meta"><span>Hackathon</span><span>2025</span></div>
           </li>
         </ul>
+
+        <!-- ===== Smaller builds ===== -->
+        <section class="section" aria-labelledby="other-title">
+          <h2 class="section-title" id="other-title">Other builds &amp; simulations</h2>
+          <ul class="mini-list">
+            <li>
+              <strong>VHF wireless beacon</strong> for high-altitude balloon and CanSat missions (Arduino Nano + DRA818V), adapted for
+              amateur-radio direction-finding.
+            </li>
+            <li><strong>ADS-B receiver</strong> feeding live aircraft data to global aggregator networks.</li>
+            <li>
+              <strong>CMOS 180 nm process-to-device simulation</strong> in Silvaco TCAD, extracting V<sub>t</sub>,
+              I<sub>dsat</sub>, I<sub>off</sub>, subthreshold swing and DIBL.
+            </li>
+            <li><strong>Schottky-diode forward I–V simulation</strong> with thermionic-emission, SRH, Auger and bandgap-narrowing models.</li>
+            <li>
+              <strong>Digital design in Verilog:</strong> 32-bit and carry-skip adders, barrel shifter, UART, BCD-to-7-segment
+              decoder and clock divider.
+            </li>
+          </ul>
+        </section>
       </div>
     </main>
 

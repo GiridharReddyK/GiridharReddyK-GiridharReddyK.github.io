@@ -29,6 +29,9 @@
   --on-accent: #ffffff;
   --code-bg: #f3f5f7;
   --live: #16a34a;
+  --award-bg: #fdf3dc;
+  --award-text: #8a5a00;
+  --figure-bg: #ffffff;
   --shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 6px 20px rgba(16, 24, 40, 0.06);
 
   --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -62,6 +65,9 @@
     --on-accent: #0f1215;
     --code-bg: #1a1f25;
     --live: #4ade80;
+    --award-bg: rgba(246, 196, 83, 0.14);
+    --award-text: #f6c453;
+    --figure-bg: #f4f6f8;
     --shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
     --icon-sun: block;
     --icon-moon: none;
@@ -82,6 +88,9 @@
   --on-accent: #0f1215;
   --code-bg: #1a1f25;
   --live: #4ade80;
+  --award-bg: rgba(246, 196, 83, 0.14);
+  --award-text: #f6c453;
+  --figure-bg: #f4f6f8;
   --shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
   --icon-sun: block;
   --icon-moon: none;
@@ -805,14 +814,26 @@ h4 {
 }
 
 /* optional image at the top of a card: <img class="card-img" src="..." alt="..."> */
-.card-img {
+.card-figure {
   margin: -20px -20px 16px;
-  width: calc(100% + 40px);
-  max-width: none;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
   border-radius: var(--radius) var(--radius) 0 0;
   border-bottom: 1px solid var(--border);
+  background: var(--figure-bg);
+  overflow: hidden;
+}
+
+.card-figure img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
+  padding: 10px;
+}
+
+.card-figure figcaption {
+  padding: 0 14px 10px;
+  color: #4b5563; /* the figure panel stays light in both themes */
+  font-size: 0.75rem;
+  line-height: 1.4;
 }
 
 .card-kicker {
@@ -968,6 +989,55 @@ h4 {
   .skills dd {
     margin-bottom: 10px;
   }
+}
+
+/* award pill, e.g. "Best Paper Award" */
+.award {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: var(--award-bg);
+  color: var(--award-text);
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  font-style: normal;
+  font-weight: 600;
+  white-space: nowrap;
+  vertical-align: 1px;
+}
+
+.pub-note {
+  margin: 28px 0 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* compact list for talks and smaller builds */
+.mini-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mini-list li {
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--border);
+  font-size: 0.95rem;
+}
+
+.mini-list li:last-child {
+  border-bottom: 0;
+}
+
+.mini-list strong {
+  font-weight: 600;
+}
+
+.card p.credit {
+  margin-top: -6px;
+  color: var(--text-muted);
+  font-size: 0.82rem;
 }
 
 /* ---------- 9. Footer, 404, utilities ---------- */

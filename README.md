@@ -8,8 +8,8 @@ There is no framework, no build step and nothing to install: the files you see a
 ```
 giridhar-site/
 ├── index.html            Home: photo, bio, research interests, news, selected papers, contact
-├── publications.html     All papers by year, with Bib / Abs / DOI buttons
-├── projects.html         Project cards with category filters
+├── publications.html     All papers by year (Bib / Summary / link buttons) + talks
+├── projects.html         Project cards with category filters + smaller builds
 ├── cv.html               Web CV + "Download PDF" button (also prints cleanly)
 ├── 404.html              Shown by GitHub Pages for any broken link
 ├── robots.txt            Tells search engines they may index the site
@@ -22,9 +22,10 @@ giridhar-site/
     ├── img/
     │   ├── favicon.svg              Browser-tab icon (antenna mast)
     │   ├── profile-placeholder.svg  Shown until you add profile.jpg
-    │   └── profile.jpg              ← YOU ADD THIS (your photo)
+    │   ├── profile.jpg              ← YOU ADD THIS (your photo)
+    │   └── projects/                Figures shown on project cards (from your reports)
     └── pdf/
-        └── Giridhar_Reddy_Karnati_CV.pdf   ← YOU ADD THIS (your CV)
+        └── Giridhar_Reddy_Karnati_CV.pdf   Your CV (the May 2026 version you sent; replace when updated)
 ```
 
 ---
@@ -41,23 +42,21 @@ python -m http.server 8000
 
 Then visit <http://localhost:8000>.
 
-## Step 2: Fill in the blanks
+## Step 2: Fill in the few remaining blanks
 
-Every place that needs your input is marked with `TODO` in an HTML comment. In VS Code, press
-**Ctrl+Shift+F**, search `TODO`, and work through the list.
+Almost everything is filled in from your CV, reports and LinkedIn. What's left is marked `TODO` in HTML comments
+(VS Code: **Ctrl+Shift+F** → search `TODO`). None of it shows on the live site, so you can publish first and fill these in later.
 
 - [ ] **Photo**: save as `assets/img/profile.jpg` (portrait, about 800×1000 px, under 300 KB)
-- [ ] **CV PDF**: save as `assets/pdf/Giridhar_Reddy_Karnati_CV.pdf`
-- [ ] **Email, LinkedIn URL, Google Scholar ID, ORCID iD**: in `index.html` (contact section) and `publications.html` (intro)
-- [ ] Then add those same profile URLs to the `"sameAs"` list near the top of `index.html`
-- [ ] **For each paper**: co-authors (in order), conference name, DOI link, abstract, and the official BibTeX
-      (IEEE Xplore → _Cite This_ → _BibTeX_)
-- [ ] **Third publication**: LinkedIn shows 3 and only 2 are on the site
-- [ ] **Education years** (B.E. and Class XII), plus the third education entry if you want it
-- [ ] **Years** for the FPGA hackathon and your amateur radio licence
-- [ ] One line each on what you did at **RRI**, **CeNSE**, **NITK**, **IISc summer school**, **India Space Week** and **NIELIT**
-- [ ] **Tools you actually use** in the Skills section (e.g. Cadence, ADS, HFSS, MATLAB, Python, Verilog)
-- [ ] Any remaining **certifications / memberships / awards** you want to show
+- [ ] **CV PDF**: `assets/pdf/Giridhar_Reddy_Karnati_CV.pdf` is the May 2026 CV you sent. It includes your **phone number**
+      and doesn't yet list IIT Hyderabad, CeNSE or the IEEE SPACE award. Replace it with an updated version (and drop the
+      phone number if you don't want it public).
+- [ ] **IEEE paper**: replace "et al." with the co-authors, and paste the official BibTeX and abstract
+      (IEEE Xplore → _Cite This_ → _BibTeX_) in `publications.html`, `index.html` and `cv.html`
+- [ ] **Google Scholar / ORCID**: when you have them, un-comment the two buttons in `index.html` (contact section) and add the
+      links to `"sameAs"` near the top of that file
+- [ ] **Years** for the NAFED-08 quiz prize and your amateur radio licence (`cv.html`)
+- [ ] Optional: link your SatNOGS station page (`projects.html`) and add a PDF of the RAW 2024 article (`publications.html`)
 
 Only list what you can back up. A short, true CV reads better than a long, padded one.
 
@@ -77,6 +76,9 @@ Only list what you can back up. A short, true CV reads better than a long, padde
    branch **main**, folder **/(root)** → **Save**.
 6. After 1–2 minutes your site is live at **https://giridharreddyk.github.io**.
 
+> **Your current repo is named `giridharreddyk-giridharreddyk.github.io`.** Rename it to exactly
+> `giridharreddyk.github.io` (repo **Settings → General → Repository name → Rename**); GitHub redirects the old URL.
+>
 > If you use a different repo name (e.g. `website`), the address becomes
 > `giridharreddyk.github.io/website/`. You would then have to add `/website` to the start of the paths
 > in `404.html` and update the URLs in `<link rel="canonical">`, `sitemap.xml` and `robots.txt`.
@@ -106,7 +108,7 @@ You can edit straight on GitHub: open a file → pencil icon → change → **Co
 | Add a news item         | `index.html` → copy one `<li>` inside `<ul class="news">`, put it at the top                                                    |
 | Add a paper             | `publications.html` → copy a whole `<li class="pub">` block and give its panels new ids. Also add it to `cv.html` (and to the home page if it's a highlight) |
 | Add a project           | `projects.html` → copy a `<li class="card">`; set `data-category` to one or more of `ic rf satcom fab digital`                  |
-| Add a project image     | Put the image in `assets/img/projects/` and add `<img class="card-img" src="..." alt="...">` as the first line of the card     |
+| Add a project image     | Put the image in `assets/img/projects/` and add `<figure class="card-figure"><img src="..." alt="..." /></figure>` as the first line of the card |
 | Change the accent color | `assets/css/style.css` → change `--accent` (and `--accent-strong`, `--accent-soft`) in **all three** colour blocks at the top  |
 | Add a new page          | Copy `cv.html`, rename it, replace the content, then add a link to it in the `<ul class="nav-links">` of **every** page          |
 
