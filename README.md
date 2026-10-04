@@ -51,7 +51,7 @@ None of it shows on the live site.
 - [ ] **IEEE paper**: check the author order and paste the official BibTeX and abstract
       (IEEE Xplore → _Cite This_ → _BibTeX_) in `publications.html`
 - [ ] **Final CGPA** (`cv.html` shows 9.23 as of May 2026)
-- [ ] **Years** for the NAFED-08 quiz prize and Class X (`cv.html`)
+- [ ] **Year** of Class X (`cv.html`)
 - [ ] **Google Scholar / ORCID**: when you have them, un-comment the two buttons in `index.html` (contact section) and add the
       links to `"sameAs"` near the top of that file
 - [ ] Optional: link your SatNOGS station page (`projects.html`) and add a PDF of the RAW 2024 article (`publications.html`)
