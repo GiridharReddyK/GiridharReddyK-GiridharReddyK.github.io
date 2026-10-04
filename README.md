@@ -23,8 +23,8 @@ giridharreddyk.github.io/
     ├── img/
     │   ├── favicon.svg              Browser-tab icon (antenna mast)
     │   ├── og-card.jpg              Preview image shown when a page is shared (LinkedIn, WhatsApp, X)
-    │   ├── profile-placeholder.svg  Shown until you add profile.jpg
-    │   ├── profile.jpg              ← YOU ADD THIS (your photo)
+    │   ├── profile-placeholder.svg  Shown only if profile.jpg is missing
+    │   ├── profile.jpg              Your photo (4:5 portrait, 600×750 px)
     │   └── projects/                Figures shown on project cards (from your reports)
     └── pdf/
         └── Giridhar_Reddy_Karnati_CV.pdf   Printed from cv.html (no phone number)
@@ -47,7 +47,6 @@ Then visit <http://localhost:8000>.
 What's left is marked `TODO` in HTML comments (VS Code: **Ctrl+Shift+F** → search `TODO`).
 None of it shows on the live site.
 
-- [ ] **Photo**: save as `assets/img/profile.jpg` (portrait, about 800×1000 px, under 300 KB)
 - [ ] **IEEE paper**: check the author order and paste the official BibTeX and abstract
       (IEEE Xplore → _Cite This_ → _BibTeX_) in `publications.html`
 - [ ] **Final CGPA** (`cv.html` shows 9.23 as of May 2026)
@@ -90,6 +89,7 @@ You can edit straight on GitHub: open a file → pencil icon → change → **Co
 | Add a project           | `projects.html` → copy a `<li class="card">`; set `data-category` to one or more of `rf radio ic fab digital`                   |
 | Add a project image     | Put the image in `assets/img/projects/` and add `<figure class="card-figure"><img src="..." alt="..." /></figure>` as the first line of the card |
 | Add an award or membership | `cv.html` → copy an `<li class="entry">` in the right section (newest first)                                                 |
+| Change your photo       | Replace `assets/img/profile.jpg` with a 4:5 portrait (e.g. 600×750 px, under 300 KB), keeping the same file name |
 | Change the accent color | `assets/css/style.css` → change `--accent` (and `--accent-strong`, `--accent-soft`) in **all three** colour blocks at the top  |
 | Add a new page          | Copy `cv.html`, rename it, replace the content, then add a link to it in the `<ul class="nav-links">` of **every** page          |
 
