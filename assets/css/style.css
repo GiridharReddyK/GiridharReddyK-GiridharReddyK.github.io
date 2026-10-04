@@ -215,6 +215,9 @@ h4 {
 }
 
 .brand {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: var(--text);
   font-size: 1.05rem;
   white-space: nowrap;
@@ -231,6 +234,7 @@ h4 {
 
 .nav-right {
   display: flex;
+  flex: none;
   align-items: center;
   gap: 8px;
 }
@@ -365,7 +369,7 @@ h4 {
   gap: 12px;
   margin: 0 0 18px;
   color: var(--text-muted);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -441,7 +445,7 @@ h4 {
   background: transparent;
   color: var(--text-muted);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   letter-spacing: 0.05em;
   line-height: 1.8;
   text-transform: uppercase;
@@ -602,7 +606,9 @@ h4 {
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  max-width: 100%;
   padding: 7px 12px;
+  overflow-wrap: anywhere;
   border: 1px solid var(--border);
   border-radius: 8px;
   color: var(--text);
@@ -787,7 +793,7 @@ h4 {
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
   gap: 20px;
   list-style: none;
   margin: 0;
@@ -832,7 +838,7 @@ h4 {
 .card-figure figcaption {
   padding: 0 14px 10px;
   color: #4b5563; /* the figure panel stays light in both themes */
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   line-height: 1.4;
 }
 
@@ -843,7 +849,7 @@ h4 {
   gap: 8px;
   color: var(--accent);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -881,7 +887,7 @@ h4 {
   border-radius: 4px;
   background: var(--bg-soft);
   color: var(--text-muted);
-  font-size: 0.75rem;
+  font-size: 0.78rem;
 }
 
 .card-meta {
@@ -926,7 +932,7 @@ h4 {
   padding-top: 2px;
   color: var(--text-muted);
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.84rem;
 }
 
 .entry-title {
@@ -944,6 +950,11 @@ h4 {
 .entry-desc {
   margin: 6px 0 0;
   font-size: 0.94rem;
+}
+
+.entry-org strong {
+  color: var(--text);
+  font-weight: 600;
 }
 
 .entry ul {
@@ -1000,7 +1011,7 @@ h4 {
   background: var(--award-bg);
   color: var(--award-text);
   font-family: var(--font-sans);
-  font-size: 0.74rem;
+  font-size: 0.76rem;
   font-style: normal;
   font-weight: 600;
   white-space: nowrap;
@@ -1037,7 +1048,7 @@ h4 {
 .card p.credit {
   margin-top: -6px;
   color: var(--text-muted);
-  font-size: 0.82rem;
+  font-size: 0.86rem;
 }
 
 /* ---------- 9. Footer, 404, utilities ---------- */
@@ -1094,6 +1105,11 @@ h4 {
   color: var(--text-muted);
 }
 
+/* only shown when printing (e.g. the name and e-mail at the top of the CV) */
+.print-only {
+  display: none;
+}
+
 @media (max-width: 600px) {
   body {
     font-size: 16px;
@@ -1126,35 +1142,122 @@ h4 {
 }
 
 /* ---------- 10. Print (makes the CV page print cleanly) ---------- */
+@page {
+  size: A4;
+  margin: 13mm 14mm;
+}
+
 @media print {
-  :root {
+  /* Same selectors as the dark theme, so print always wins and stays light */
+  :root,
+  :root[data-theme="dark"],
+  :root:not([data-theme="light"]) {
     --bg: #fff;
+    --bg-soft: #f4f6f8;
+    --surface: #fff;
     --text: #000;
     --text-muted: #444;
     --border: #ccc;
     --accent: #000;
+    --accent-strong: #000;
+    --accent-soft: #eef1f3;
+    --on-accent: #fff;
+    --code-bg: #f4f6f8;
+    --award-bg: transparent;
+    --award-text: #000;
+    color-scheme: light;
+    font-size: 14px; /* 1rem ≈ 10.5pt on paper; all rem sizes scale with it */
   }
 
   .site-header,
   .site-footer,
   .cv-actions,
-  .skip-link {
+  .skip-link,
+  .no-print {
     display: none !important;
   }
 
+  .print-only {
+    display: block;
+  }
+
   body {
-    font-size: 11pt;
+    background: #fff;
+    color: #000;
+    font-size: 1rem;
+    line-height: 1.4;
   }
 
   .page {
     padding: 0;
   }
 
+  .container {
+    max-width: none;
+    padding: 0;
+  }
+
+  .print-name {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: 22pt;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .print-contact {
+    margin: 2px 0 10px;
+    font-size: 9.5pt;
+  }
+
+  .page-lead {
+    max-width: none;
+  }
+
   .section {
-    margin-top: 20px;
+    margin-top: 12px;
+  }
+
+  .section-title {
+    margin-bottom: 6px;
+    break-after: avoid;
   }
 
   .entry {
+    grid-template-columns: 27mm 1fr;
+    gap: 4mm;
+    padding: 4px 0;
     break-inside: avoid;
+  }
+
+  /* long entries with bullet lists may continue on the next page */
+  .entry:has(ul) {
+    break-inside: auto;
+  }
+
+  .entry-desc,
+  .entry ul {
+    margin-top: 3px;
+  }
+
+  .entry li {
+    break-inside: avoid;
+  }
+
+  .entry-date {
+    font-size: 0.8rem;
+  }
+
+  .award {
+    border: 1px solid #999;
+  }
+
+  .skills {
+    grid-template-columns: 38mm 1fr;
+    gap: 3px 4mm;
+  }
+
+  a {
+    color: inherit;
   }
 }

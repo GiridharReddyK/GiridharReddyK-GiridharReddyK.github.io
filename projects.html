@@ -10,9 +10,20 @@
     />
     <meta name="author" content="Giridhar Reddy Karnati" />
     <link rel="canonical" href="https://giridharreddyk.github.io/projects.html" />
+
+    <!-- How the link looks when shared on LinkedIn / WhatsApp / X -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Giridhar Reddy Karnati" />
     <meta property="og:title" content="Projects · Giridhar Reddy Karnati" />
+    <meta property="og:description" content="CMOS receiver front-end, water-vapour radiometer, GNSS anti-spoofing antenna array, wide-band antennas, microwave couplers, LoRa and SatNOGS ground stations, CubeSat hardware, nanofabrication and FPGA design." />
     <meta property="og:url" content="https://giridharreddyk.github.io/projects.html" />
+    <meta property="og:image" content="https://giridharreddyk.github.io/assets/img/og-card.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Giridhar Reddy Karnati: RF and microwave, antennas, radio receivers, satellite ground stations" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#0b7285" />
+
     <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
     <script>
       (function () {
@@ -172,9 +183,9 @@
             <div class="card-kicker"><span>RF &amp; antennas</span></div>
             <h2 class="card-title">Coupled-line couplers and Schiffman phase shifter</h2>
             <p>
-              IEEE summer internship at IIT Kharagpur: modelled a coupled-line directional coupler, a Schiffman phase shifter and a
-              180° hybrid coupler in MATLAB from coupled-line theory, and validated them against ideal circuit simulations in
-              Keysight ADS, comparing insertion loss, return loss and phase error.
+              IEEE AP/MTT-S summer internship with IIT Kharagpur (remote): modelled a coupled-line directional coupler, a
+              Schiffman phase shifter and a 180° hybrid coupler in MATLAB from coupled-line theory, and validated them against
+              ideal circuit simulations in Keysight ADS, comparing insertion loss, return loss and phase error.
             </p>
             <p class="credit">Mentor: Shrawan Kumar Patel, IIT Kharagpur</p>
             <ul class="tags">
@@ -192,10 +203,14 @@
             <p>
               Designed, built and field-tested a quarter-wave ground-plane antenna, plus dipole, Yagi–Uda, quadrifilar-helix and
               turnstile antennas, for 433 MHz LoRa CubeSat downlinks, with a comparative link-margin analysis. The ground-plane
-              antenna received telemetry from slant ranges of about 3,100 km (4,000+ packets). The station runs
+              antenna was better at receiving packets and received telemetry from slant ranges of about 3,100 km (4,000+
+              packets). The station runs
               <a href="https://vayuvani.com/">VayuVani</a> with my own Python decoders for LoRa telemetry and offline archiving.
             </p>
-            <p class="credit">Best Paper Award, IEEE SCEEECS 2025 · VayuVani is an open-source platform by Chandra Tungathurthi</p>
+            <p class="credit">
+              Paper with K. Vasanth, V. Bala Sai Datta and K. Suman: Best Research Paper Award, IEEE SCEECS 2025 · VayuVani is an
+              open-source platform by Chandra Tungathurthi
+            </p>
             <ul class="tags">
               <li class="tag">LoRa</li>
               <li class="tag">Antennas</li>
@@ -260,8 +275,8 @@
             <p>
               At IIT Hyderabad's SPARC NANO-X lab, fabricated nano-silicon waveguides, microfluidic devices and 50 µm gold
               interdigitated electrodes for 2-D-material gas sensors, using Heidelberg µPG 501 maskless lithography, DC magnetron
-              sputtering and lift-off in a Class-1000 clean room. Earlier, fabricated and characterised 2-D-material nano-device
-              sensors at CREST, BITS Pilani Hyderabad.
+              sputtering and lift-off in a Class-1000 clean room, along with reactive-ion etching and plasma cleaning. Earlier,
+              fabricated and characterised 2-D-material nano-device sensors at CREST, BITS Pilani Hyderabad.
             </p>
             <ul class="tags">
               <li class="tag">Lithography</li>
@@ -278,14 +293,14 @@
             <p>
               A multi-core soft-processor cluster in Verilog with LFSR-based traffic generators and a round-robin arbiter FSM,
               targeted at FPGA synthesis in Xilinx Vivado. Ranked 20th of 250 (top 8%) in the AI/ML Powered FPGA Design &amp;
-              Simulation Hackathon.
+              Simulation Hackathon at NIT Jamshedpur.
             </p>
             <ul class="tags">
               <li class="tag">Verilog</li>
               <li class="tag">Xilinx Vivado</li>
               <li class="tag">FPGA</li>
             </ul>
-            <div class="card-meta"><span>Hackathon</span><span>2025</span></div>
+            <div class="card-meta"><span>NIT Jamshedpur hackathon</span><span>Dec 2025</span></div>
           </li>
         </ul>
 
@@ -315,7 +330,7 @@
     <footer class="site-footer">
       <div class="container">
         <p>© <span data-year>2026</span> Giridhar Reddy Karnati</p>
-        <p>Designed and built by me · Hosted on GitHub Pages</p>
+        <p>Hosted on <a href="https://pages.github.com/">GitHub Pages</a></p>
       </div>
     </footer>
   </body>
