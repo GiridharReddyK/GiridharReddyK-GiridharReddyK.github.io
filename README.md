@@ -9,13 +9,15 @@ The site is a small static project written in plain HTML, CSS and JavaScript. It
 - Four content pages: home (profile, news, selected publications), publications (with BibTeX and summaries), projects (filterable cards) and a web CV
 - Responsive layout with a mobile navigation menu
 - Light and dark themes that follow the system preference, with a manual toggle that persists across visits
-- Print stylesheet for the CV page (A4), which is also the source of the downloadable PDF
-- Sharing and search metadata: Open Graph and Twitter cards, JSON-LD (`Person`) structured data, `sitemap.xml` and `robots.txt`
-- Accessibility basics: semantic landmarks, a skip link, visible focus styles and reduced-motion support
+- Print stylesheet for the CV page (A4), including a QR code back to the site, which is also the source of the downloadable PDF
+- Progressive enhancement: cross-fading page navigation and an animated project filter using the View Transitions API, disabled for visitors who prefer reduced motion
+- Sharing and search metadata: Open Graph and Twitter cards, JSON-LD structured data (`Person`, plus `CollectionPage` lists for publications and projects), `sitemap.xml` and `robots.txt`
+- Accessibility: semantic landmarks, a skip link that moves focus, visible focus styles and reduced-motion support
+- Performance: no render-blocking or third-party requests, preloaded fonts and hero image, `content-visibility` on long sections
 
 ## Tech stack
 
-- HTML5, CSS3 (custom properties, Grid and Flexbox) and vanilla JavaScript
+- HTML5, modern CSS (custom properties, `light-dark()`, nesting, Grid, Flexbox, logical properties) and vanilla JavaScript (ES2022)
 - [IBM Plex](https://www.ibm.com/plex/) typefaces, self-hosted as WOFF2 subsets, so pages make no third-party requests
 - GitHub Pages for hosting
 

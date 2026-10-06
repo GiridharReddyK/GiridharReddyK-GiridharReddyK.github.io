@@ -127,19 +127,44 @@
   const filterBar = document.querySelector("[data-filters]");
   if (filterBar) {
     const cards = document.querySelectorAll("[data-category]");
-    filterBar.addEventListener("click", (e) => {
-      const btn = e.target.closest("button[data-filter]");
-      if (!btn) return;
-      const filter = btn.dataset.filter;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let transitionId = 0;
 
-      filterBar.querySelectorAll("button[data-filter]").forEach((b) => {
-        b.setAttribute("aria-pressed", String(b === btn));
-      });
-
+    const showMatching = (filter) => {
       cards.forEach((card) => {
         const categories = card.dataset.category.split(/\s+/);
         card.hidden = filter !== "all" && !categories.includes(filter);
       });
+    };
+
+    // Cards stay `hidden` (out of the layout, tab order and accessibility tree).
+    // Where supported, a view transition animates the cards that stay, leave or
+    // appear; elsewhere the change is instant.
+    const applyFilter = (filter) => {
+      if (!document.startViewTransition || prefersReducedMotion.matches) {
+        showMatching(filter);
+        return;
+      }
+      const id = ++transitionId;
+      cards.forEach((card, i) => {
+        card.style.viewTransitionName = `card-${i}`;
+      });
+      document.startViewTransition(() => showMatching(filter)).finished.finally(() => {
+        if (id !== transitionId) return; // a newer transition is still using the names
+        cards.forEach((card) => {
+          card.style.viewTransitionName = "";
+        });
+      });
+    };
+
+    filterBar.addEventListener("click", (e) => {
+      const btn = e.target.closest("button[data-filter]");
+      if (!btn) return;
+
+      filterBar.querySelectorAll("button[data-filter]").forEach((b) => {
+        b.setAttribute("aria-pressed", String(b === btn));
+      });
+      applyFilter(btn.dataset.filter);
     });
   }
 
