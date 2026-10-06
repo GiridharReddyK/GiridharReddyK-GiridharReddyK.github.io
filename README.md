@@ -9,14 +9,16 @@ The site is a small static project written in plain HTML, CSS and JavaScript. It
 - Four content pages: home (profile, news, selected publications), publications (with BibTeX and summaries), projects (filterable cards) and a web CV
 - Responsive layout with a mobile navigation menu
 - Light and dark themes that follow the system preference, with a manual toggle that persists across visits
-- Print stylesheet for the CV page (A4), which is also the source of the downloadable PDF
-- Sharing and search metadata: Open Graph and Twitter cards, JSON-LD (`Person`) structured data, `sitemap.xml` and `robots.txt`
-- Accessibility basics: semantic landmarks, a skip link, visible focus styles and reduced-motion support
+- Print stylesheet for the CV page (A4), including a QR code back to the site, which is also the source of the downloadable PDF
+- Progressive enhancement: cross-fading page navigation and an animated project filter using the View Transitions API, disabled for visitors who prefer reduced motion
+- Sharing and search metadata: Open Graph and Twitter cards, JSON-LD structured data (`Person`, plus `CollectionPage` lists for publications and projects), `sitemap.xml` and `robots.txt`
+- Accessibility: semantic landmarks, a skip link that moves focus, visible focus styles, contrast-checked colours, links that do not rely on colour alone and reduced-motion support
+- Performance: no third-party requests, preloaded fonts with metric-matched fallbacks (no layout shift while they load), a responsive hero image and `content-visibility` on long sections
 
 ## Tech stack
 
-- HTML5, CSS3 (custom properties, Grid and Flexbox) and vanilla JavaScript
-- [IBM Plex](https://www.ibm.com/plex/) typefaces, loaded from Google Fonts (the only external request)
+- HTML5, modern CSS (custom properties, `light-dark()`, nesting, Grid, Flexbox, logical properties) and vanilla JavaScript (ES2022)
+- [IBM Plex](https://www.ibm.com/plex/) typefaces, self-hosted as WOFF2 subsets, so pages make no third-party requests
 - GitHub Pages for hosting
 
 ## Project structure
@@ -34,6 +36,7 @@ The site is a small static project written in plain HTML, CSS and JavaScript. It
 └── assets/
     ├── css/style.css     Stylesheet: design tokens, themes, print styles
     ├── js/main.js        Theme toggle, mobile nav, publication panels, project filters
+    ├── fonts/            Self-hosted IBM Plex (WOFF2) and its licence
     ├── img/              Favicon, profile photo, link-preview card, project figures
     └── pdf/              Downloadable CV
 ```
@@ -56,7 +59,7 @@ GitHub Pages publishes the root of the `main` branch. Pushing changes to `main` 
 
 ## Acknowledgements
 
-- Typefaces: IBM Plex Sans, Serif and Mono ([SIL Open Font License 1.1](https://openfontlicense.org/))
+- Typefaces: IBM Plex Sans, Serif and Mono ([SIL Open Font License 1.1](https://openfontlicense.org/); licence text in `assets/fonts/LICENSE.txt`)
 - Social icons: [Simple Icons](https://simpleicons.org) (CC0 1.0)
 - The layout draws on conventions from academic site themes such as [al-folio](https://github.com/alshedivat/al-folio); all code here is original
 

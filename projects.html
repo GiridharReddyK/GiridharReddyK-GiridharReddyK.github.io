@@ -33,14 +33,214 @@
         } catch (e) {}
       })();
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Serif:wght@500;600&display=swap"
-    />
+    <link rel="preload" href="assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/ibm-plex-serif-600-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="assets/css/style.css" />
     <script src="assets/js/main.js" defer></script>
+
+    <!-- Structured data (schema.org) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Projects",
+        "url": "https://giridharreddyk.github.io/projects.html",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "Giridhar Reddy Karnati",
+          "url": "https://giridharreddyk.github.io/"
+        },
+        "about": {
+          "@type": "Person",
+          "@id": "https://giridharreddyk.github.io/#me",
+          "name": "Giridhar Reddy Karnati",
+          "alternateName": "K. Giridhar Reddy",
+          "url": "https://giridharreddyk.github.io/"
+        },
+        "mainEntity": {
+          "@type": "ItemList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@type": "CreativeWork",
+                "name": "Wideband receiver front-end in CMOS",
+                "keywords": "RFIC, CMOS, Receiver front-end",
+                "creator": {
+                  "@type": "Person",
+                  "@id": "https://giridharreddyk.github.io/#me",
+                  "name": "Giridhar Reddy Karnati",
+                  "alternateName": "K. Giridhar Reddy",
+                  "url": "https://giridharreddyk.github.io/"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "item": {
+                "@type": "CreativeWork",
+                "name": "Water-vapour radiometer",
+                "keywords": "Radiometry, Link budget, Noise figure",
+                "creator": {
+                  "@type": "Person",
+                  "@id": "https://giridharreddyk.github.io/#me",
+                  "name": "Giridhar Reddy Karnati",
+                  "alternateName": "K. Giridhar Reddy",
+                  "url": "https://giridharreddyk.github.io/"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "item": {
+                "@type": "CreativeWork",
+                "name": "Anti-spoofing GNSS antenna array (CRPA)",
+                "keywords": "Ansys HFSS, Antenna arrays, GNSS",
+                "creator": {
+                  "@type": "Person",
+                  "@id": "https://giridharreddyk.github.io/#me",
+                  "name": "Giridhar Reddy Karnati",
+                  "alternateName": "K. Giridhar Reddy",
+                  "url": "https://giridharreddyk.github.io/"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "item": {
+                "@type": "CreativeWork",
+                "name": "Wide-band blade dipole for UAVs",
+                "keywords": "Ansys HFSS, CST Studio Suite, Wide-band antennas",
+                "creator": {
+                  "@type": "Person",
+                  "@id": "https://giridharreddyk.github.io/#me",
+                  "name": "Giridhar Reddy Karnati",
+                  "alternateName": "K. Giridhar Reddy",
+                  "url": "https://giridharreddyk.github.io/"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "item": {
+                "@type": "CreativeWork",
+                "name": "Coupled-line couplers and Schiffman phase shifter",
+                "keywords": "Keysight ADS, MATLAB, Microwave circuits",
+                "creator": {
+                  "@type": "Person",
+                  "@id": "https://giridharreddyk.github.io/#me",
+                  "name": "Giridhar Reddy Karnati",
+                  "alternateName": "K. Giridhar Reddy",
+                  "url": "https://giridharreddyk.github.io/"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 6,
+              "item": {
+                "@type": "CreativeWork",
+                "name": "LoRa satellite ground station at 433 MHz",
+                "keywords": "LoRa, Antennas, Python",
+                "creator": {
+                  "@type": "Person",
+                  "@id": "https://giridharreddyk.github.io/#me",
+                  "name": "Giridhar Reddy Karnati",
+                  "alternateName": "K. Giridhar Reddy",
+                  "url": "https://giridharreddyk.github.io/"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 7,
+              "item": {
+                "@type": "CreativeWork",
+                "name": "SatNOGS ground station",
+                "keywords": "SatNOGS, SDR, Ground station",
+                "creator": {
+                  "@type": "Person",
+                  "@id": "https://giridharreddyk.github.io/#me",
+                  "name": "Giridhar Reddy Karnati",
+                  "alternateName": "K. Giridhar Reddy",
+                  "url": "https://giridharreddyk.github.io/"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 8,
+              "item": {
+                "@type": "CreativeWork",
+                "name": "CubeSat antenna deployment: burn-wire mechanism",
+                "keywords": "CubeSat, PCB design, Embedded",
+                "creator": {
+                  "@type": "Person",
+                  "@id": "https://giridharreddyk.github.io/#me",
+                  "name": "Giridhar Reddy Karnati",
+                  "alternateName": "K. Giridhar Reddy",
+                  "url": "https://giridharreddyk.github.io/"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 9,
+              "item": {
+                "@type": "CreativeWork",
+                "name": "SDR transceivers and APRS ground nodes",
+                "keywords": "SDR, APRS, Raspberry Pi",
+                "creator": {
+                  "@type": "Person",
+                  "@id": "https://giridharreddyk.github.io/#me",
+                  "name": "Giridhar Reddy Karnati",
+                  "alternateName": "K. Giridhar Reddy",
+                  "url": "https://giridharreddyk.github.io/"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 10,
+              "item": {
+                "@type": "CreativeWork",
+                "name": "Clean-room nanofabrication",
+                "keywords": "Lithography, Sputtering, 2-D materials",
+                "creator": {
+                  "@type": "Person",
+                  "@id": "https://giridharreddyk.github.io/#me",
+                  "name": "Giridhar Reddy Karnati",
+                  "alternateName": "K. Giridhar Reddy",
+                  "url": "https://giridharreddyk.github.io/"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 11,
+              "item": {
+                "@type": "CreativeWork",
+                "name": "Multi-core soft-processor cluster",
+                "keywords": "Verilog, Xilinx Vivado, FPGA",
+                "creator": {
+                  "@type": "Person",
+                  "@id": "https://giridharreddyk.github.io/#me",
+                  "name": "Giridhar Reddy Karnati",
+                  "alternateName": "K. Giridhar Reddy",
+                  "url": "https://giridharreddyk.github.io/"
+                }
+              }
+            }
+          ]
+        }
+      }
+    </script>
   </head>
 
   <body>
@@ -70,7 +270,7 @@
       </nav>
     </header>
 
-    <main id="main" class="page">
+    <main id="main" class="page" tabindex="-1">
       <div class="container">
         <header class="page-header">
           <h1 class="page-title">Projects</h1>
@@ -123,6 +323,7 @@
                 width="678"
                 height="466"
                 loading="lazy"
+                decoding="async"
               />
             </figure>
             <div class="card-kicker"><span>RF &amp; antennas</span></div>
@@ -166,6 +367,7 @@
                 width="607"
                 height="452"
                 loading="lazy"
+                decoding="async"
               />
               <figcaption>Schiffman phase shifter (MATLAB model): phase difference within ±5° of 90° over about 70% bandwidth.</figcaption>
             </figure>
