@@ -63,7 +63,7 @@
     });
   }
 
-  /* ---------- Publication panels (Abs / Bib) ----------
+  /* ---------- Publication panels (Summary / Bib) ----------
      A button with data-panel and aria-controls="some-id" shows/hides the
      element with that id. Opening one panel closes the others in the same entry. */
   var panelButtons = document.querySelectorAll("[data-panel]");
@@ -129,7 +129,7 @@
   });
 
   /* ---------- Project filters ----------
-     Buttons: <button data-filter="rf">. Cards: <li data-category="rf satcom">. */
+     Buttons: <button data-filter="rf">. Cards: <li data-category="rf radio">. */
   var filterBar = document.querySelector("[data-filters]");
   if (filterBar) {
     var cards = document.querySelectorAll("[data-category]");

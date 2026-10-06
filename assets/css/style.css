@@ -1,9 +1,9 @@
 /* ==========================================================================
-   Giridhar Reddy Karnati — personal academic website
-   Hand-written stylesheet. No frameworks, no build step.
+   Giridhar Reddy Karnati — personal website
+   Hand-written stylesheet: no frameworks, no build step.
 
    Sections
-   1. Design tokens (colours, fonts, sizes) — edit these to re-theme the site
+   1. Design tokens (colours, fonts, sizes)
    2. Base / reset
    3. Header & navigation
    4. Page layout & headings
@@ -819,7 +819,7 @@ h4 {
   transform: translateY(-2px);
 }
 
-/* optional image at the top of a card: <img class="card-img" src="..." alt="..."> */
+/* optional figure at the top of a project card */
 .card-figure {
   margin: -20px -20px 16px;
   border-radius: var(--radius) var(--radius) 0 0;
