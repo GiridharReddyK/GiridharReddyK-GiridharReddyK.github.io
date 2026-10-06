@@ -49,6 +49,7 @@
       navLinks.classList.toggle("is-open", open);
       navToggle.setAttribute("aria-expanded", String(open));
       navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      if (open) navLinks.querySelector("a").focus();
     };
 
     navToggle.addEventListener("click", function () {

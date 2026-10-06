@@ -213,6 +213,11 @@ a:hover {
   border-radius: 4px;
 }
 
+/* <main> only takes focus from the skip link; it is not interactive, so no ring */
+main:focus-visible {
+  outline: none;
+}
+
 h1,
 h2,
 h3,
