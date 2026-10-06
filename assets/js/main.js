@@ -2,39 +2,37 @@
    main.js — small, dependency-free helpers for the site.
    Everything here is optional: every page still reads fine without JS.
    ========================================================================== */
-(function () {
+(() => {
   "use strict";
 
-  var root = document.documentElement;
+  const root = document.documentElement;
 
   /* ---------- Light / dark theme toggle ----------
      The early <script> in each page's <head> applies a saved choice before
      the page paints (no flash). This part handles the button. */
-  function systemPrefersDark() {
-    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-  }
+  const systemPrefersDark = () => window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-  function currentTheme() {
-    var chosen = root.getAttribute("data-theme");
+  const currentTheme = () => {
+    const chosen = root.getAttribute("data-theme");
     if (chosen === "light" || chosen === "dark") return chosen;
     return systemPrefersDark() ? "dark" : "light";
-  }
+  };
 
-  var themeBtn = document.querySelector(".theme-toggle");
+  const themeBtn = document.querySelector(".theme-toggle");
   if (themeBtn) {
-    var syncThemeLabel = function () {
-      var next = currentTheme() === "dark" ? "light" : "dark";
-      themeBtn.setAttribute("aria-label", "Switch to " + next + " mode");
-      themeBtn.title = "Switch to " + next + " mode";
+    const syncThemeLabel = () => {
+      const next = currentTheme() === "dark" ? "light" : "dark";
+      themeBtn.setAttribute("aria-label", `Switch to ${next} mode`);
+      themeBtn.title = `Switch to ${next} mode`;
     };
     syncThemeLabel();
 
-    themeBtn.addEventListener("click", function () {
-      var next = currentTheme() === "dark" ? "light" : "dark";
+    themeBtn.addEventListener("click", () => {
+      const next = currentTheme() === "dark" ? "light" : "dark";
       root.setAttribute("data-theme", next);
       try {
         localStorage.setItem("theme", next);
-      } catch (e) {
+      } catch {
         /* private mode / storage blocked: the toggle still works for this page */
       }
       syncThemeLabel();
@@ -42,21 +40,21 @@
   }
 
   /* ---------- Mobile navigation ---------- */
-  var navToggle = document.querySelector(".nav-toggle");
-  var navLinks = document.getElementById("nav-links");
+  const navToggle = document.querySelector(".nav-toggle");
+  const navLinks = document.getElementById("nav-links");
   if (navToggle && navLinks) {
-    var setNav = function (open) {
+    const setNav = (open) => {
       navLinks.classList.toggle("is-open", open);
       navToggle.setAttribute("aria-expanded", String(open));
       navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
       if (open) navLinks.querySelector("a").focus();
     };
 
-    navToggle.addEventListener("click", function () {
+    navToggle.addEventListener("click", () => {
       setNav(!navLinks.classList.contains("is-open"));
     });
 
-    document.addEventListener("keydown", function (e) {
+    document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && navLinks.classList.contains("is-open")) {
         setNav(false);
         navToggle.focus();
@@ -67,21 +65,20 @@
   /* ---------- Publication panels (Summary / Bib) ----------
      A button with data-panel and aria-controls="some-id" shows/hides the
      element with that id. Opening one panel closes the others in the same entry. */
-  var panelButtons = document.querySelectorAll("[data-panel]");
-  Array.prototype.forEach.call(panelButtons, function (btn) {
-    btn.addEventListener("click", function () {
-      var panel = document.getElementById(btn.getAttribute("aria-controls"));
+  document.querySelectorAll("[data-panel]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const panel = document.getElementById(btn.getAttribute("aria-controls"));
       if (!panel) return;
-      var willOpen = panel.hidden;
+      const willOpen = panel.hidden;
 
-      var entry = btn.closest(".pub");
-      if (entry) {
-        Array.prototype.forEach.call(entry.querySelectorAll("[data-panel]"), function (other) {
-          var otherPanel = document.getElementById(other.getAttribute("aria-controls"));
+      btn
+        .closest(".pub")
+        ?.querySelectorAll("[data-panel]")
+        .forEach((other) => {
+          const otherPanel = document.getElementById(other.getAttribute("aria-controls"));
           if (otherPanel) otherPanel.hidden = true;
           other.setAttribute("aria-expanded", "false");
         });
-      }
 
       panel.hidden = !willOpen;
       btn.setAttribute("aria-expanded", String(willOpen));
@@ -89,41 +86,37 @@
   });
 
   /* ---------- Copy BibTeX ---------- */
-  function copyText(text) {
+  const copyText = async (text) => {
     if (navigator.clipboard && window.isSecureContext) {
       return navigator.clipboard.writeText(text);
     }
-    return new Promise(function (resolve, reject) {
-      var area = document.createElement("textarea");
-      area.value = text;
-      area.setAttribute("readonly", "");
-      area.style.position = "fixed";
-      area.style.opacity = "0";
-      document.body.appendChild(area);
-      area.select();
-      try {
-        document.execCommand("copy") ? resolve() : reject();
-      } catch (e) {
-        reject(e);
-      }
-      document.body.removeChild(area);
-    });
-  }
+    // Fallback for non-secure contexts
+    const area = document.createElement("textarea");
+    area.value = text;
+    area.setAttribute("readonly", "");
+    area.style.position = "fixed";
+    area.style.opacity = "0";
+    document.body.append(area);
+    area.select();
+    try {
+      if (!document.execCommand("copy")) throw new Error("copy command was rejected");
+    } finally {
+      area.remove();
+    }
+  };
 
-  Array.prototype.forEach.call(document.querySelectorAll(".copy-btn"), function (btn) {
-    var label = btn.textContent;
-    btn.addEventListener("click", function () {
-      var pre = btn.parentElement.querySelector("pre");
+  document.querySelectorAll(".copy-btn").forEach((btn) => {
+    const label = btn.textContent;
+    btn.addEventListener("click", async () => {
+      const pre = btn.parentElement.querySelector("pre");
       if (!pre) return;
-      copyText(pre.textContent.trim()).then(
-        function () {
-          btn.textContent = "Copied";
-        },
-        function () {
-          btn.textContent = "Press Ctrl+C";
-        }
-      );
-      setTimeout(function () {
+      try {
+        await copyText(pre.textContent.trim());
+        btn.textContent = "Copied";
+      } catch {
+        btn.textContent = "Press Ctrl+C";
+      }
+      setTimeout(() => {
         btn.textContent = label;
       }, 1600);
     });
@@ -131,27 +124,27 @@
 
   /* ---------- Project filters ----------
      Buttons: <button data-filter="rf">. Cards: <li data-category="rf radio">. */
-  var filterBar = document.querySelector("[data-filters]");
+  const filterBar = document.querySelector("[data-filters]");
   if (filterBar) {
-    var cards = document.querySelectorAll("[data-category]");
-    filterBar.addEventListener("click", function (e) {
-      var btn = e.target.closest("button[data-filter]");
+    const cards = document.querySelectorAll("[data-category]");
+    filterBar.addEventListener("click", (e) => {
+      const btn = e.target.closest("button[data-filter]");
       if (!btn) return;
-      var filter = btn.getAttribute("data-filter");
+      const filter = btn.dataset.filter;
 
-      Array.prototype.forEach.call(filterBar.querySelectorAll("button[data-filter]"), function (b) {
+      filterBar.querySelectorAll("button[data-filter]").forEach((b) => {
         b.setAttribute("aria-pressed", String(b === btn));
       });
 
-      Array.prototype.forEach.call(cards, function (card) {
-        var categories = card.getAttribute("data-category").split(/\s+/);
-        card.hidden = filter !== "all" && categories.indexOf(filter) === -1;
+      cards.forEach((card) => {
+        const categories = card.dataset.category.split(/\s+/);
+        card.hidden = filter !== "all" && !categories.includes(filter);
       });
     });
   }
 
   /* ---------- Footer year ---------- */
-  Array.prototype.forEach.call(document.querySelectorAll("[data-year]"), function (el) {
+  document.querySelectorAll("[data-year]").forEach((el) => {
     el.textContent = new Date().getFullYear();
   });
 })();
