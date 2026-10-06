@@ -38,7 +38,15 @@
 
     <link rel="preload" href="assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="assets/fonts/ibm-plex-serif-600-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" as="image" href="assets/img/profile.jpg" type="image/jpeg" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="image"
+      href="assets/img/profile.jpg"
+      imagesrcset="assets/img/profile-300.jpg 300w, assets/img/profile.jpg 600w"
+      imagesizes="(max-width: 640px) 140px, 200px"
+      type="image/jpeg"
+      fetchpriority="high"
+    />
     <link rel="stylesheet" href="assets/css/style.css" />
     <script src="assets/js/main.js" defer></script>
 
@@ -123,12 +131,14 @@
           <figure class="hero-photo">
             <img
               src="assets/img/profile.jpg"
+              srcset="assets/img/profile-300.jpg 300w, assets/img/profile.jpg 600w"
+              sizes="(max-width: 640px) 140px, 200px"
               alt="Portrait of Giridhar Reddy Karnati"
               width="600"
               height="750"
               fetchpriority="high"
               decoding="sync"
-              onerror="this.onerror=null;this.src='assets/img/profile-placeholder.svg'"
+              onerror="this.onerror=null;this.removeAttribute('srcset');this.src='assets/img/profile-placeholder.svg'"
             />
           </figure>
         </section>

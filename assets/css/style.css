@@ -82,6 +82,85 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+/* Metric-matched fallbacks: a local system font scaled to take the same space as IBM Plex,
+   so text does not reflow (layout shift) when the web fonts finish loading. */
+@font-face {
+  font-family: "IBM Plex Sans Fallback";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Arial"), local("Helvetica"), local("Liberation Sans"), local("Arimo");
+  size-adjust: 100.21%;
+  ascent-override: 102.29%;
+  descent-override: 27.44%;
+  line-gap-override: 0.00%;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans Fallback";
+  font-style: normal;
+  font-weight: 600;
+  src: local("Arial Bold"), local("Arial-BoldMT"), local("Helvetica Bold"), local("Liberation Sans Bold"), local("Arimo Bold");
+  size-adjust: 97.35%;
+  ascent-override: 105.29%;
+  descent-override: 28.25%;
+  line-gap-override: 0.00%;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans Fallback";
+  font-style: italic;
+  font-weight: 400;
+  src: local("Arial Italic"), local("Arial-ItalicMT"), local("Helvetica Oblique"), local("Liberation Sans Italic"), local("Arimo Italic");
+  size-adjust: 98.89%;
+  ascent-override: 103.65%;
+  descent-override: 27.81%;
+  line-gap-override: 0.00%;
+}
+
+@font-face {
+  font-family: "IBM Plex Serif Fallback";
+  font-style: normal;
+  font-weight: 500;
+  src: local("Times New Roman"), local("TimesNewRomanPSMT"), local("Times"), local("Liberation Serif"), local("Tinos");
+  size-adjust: 116.53%;
+  ascent-override: 87.96%;
+  descent-override: 23.60%;
+  line-gap-override: 0.00%;
+}
+
+@font-face {
+  font-family: "IBM Plex Serif Fallback";
+  font-style: normal;
+  font-weight: 600;
+  src: local("Times New Roman Bold"), local("TimesNewRomanPS-BoldMT"), local("Times Bold"), local("Liberation Serif Bold"), local("Tinos Bold");
+  size-adjust: 110.99%;
+  ascent-override: 92.35%;
+  descent-override: 24.78%;
+  line-gap-override: 0.00%;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono Fallback";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Courier New"), local("CourierNewPSMT"), local("Liberation Mono"), local("Cousine");
+  size-adjust: 99.98%;
+  ascent-override: 102.52%;
+  descent-override: 27.50%;
+  line-gap-override: 0.00%;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono Fallback";
+  font-style: normal;
+  font-weight: 600;
+  src: local("Courier New Bold"), local("CourierNewPS-BoldMT"), local("Liberation Mono Bold"), local("Cousine Bold");
+  size-adjust: 99.98%;
+  ascent-override: 102.52%;
+  descent-override: 27.50%;
+  line-gap-override: 0.00%;
+}
+
 /* ---------- 1. Design tokens ---------- */
 :root {
   /* Follows the system theme. The toggle forces one through [data-theme], below. */
@@ -100,6 +179,7 @@
   --on-accent: light-dark(#ffffff, #0f1215);
   --code-bg: light-dark(#f3f5f7, #1a1f25);
   --live: light-dark(#16a34a, #4ade80);
+  --live-text: light-dark(#166534, #4ade80); /* text on the tinted status pill (4.5:1) */
   --award-bg: light-dark(#fdf3dc, rgba(246, 196, 83, 0.14));
   --award-text: light-dark(#8a5a00, #f6c453);
   --figure-bg: light-dark(#ffffff, #f4f6f8);
@@ -109,9 +189,9 @@
   --icon-sun: none; /* which icon the theme button shows */
   --icon-moon: block;
 
-  --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-serif: "IBM Plex Serif", Georgia, "Times New Roman", serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-sans: "IBM Plex Sans", "IBM Plex Sans Fallback", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "IBM Plex Serif", "IBM Plex Serif Fallback", Georgia, "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", "IBM Plex Mono Fallback", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   --maxw: 880px;
   --radius: 10px;
@@ -185,6 +265,23 @@ a {
 
   &:hover {
     text-decoration: underline;
+  }
+}
+
+/* Links inside running text are underlined, so they do not rely on colour alone */
+.prose a,
+.news a,
+.card p a,
+.pub-note a,
+.muted a,
+.entry-org a,
+.site-footer a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: color-mix(in srgb, currentColor 50%, transparent);
+
+  &:hover {
+    text-decoration-color: currentColor;
   }
 }
 
@@ -966,7 +1063,7 @@ h4 {
   padding: 1px 8px;
   border-radius: 999px;
   background: color-mix(in srgb, var(--live) 15%, transparent);
-  color: var(--live);
+  color: var(--live-text);
   letter-spacing: 0.04em;
 }
 
